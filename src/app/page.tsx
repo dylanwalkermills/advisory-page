@@ -33,7 +33,7 @@ export default function Home() {
     try {
       // n8n webhook URL
       const webhookUrl =
-        "https://dwmills.app.n8n.cloud/webhook-test/44a8630a-6db5-464e-80a3-e817a4fd9fae";
+        "https://dwmills.app.n8n.cloud/webhook/44a8630a-6db5-464e-80a3-e817a4fd9fae";
 
       const response = await fetch(webhookUrl, {
         method: "POST",
@@ -79,7 +79,7 @@ export default function Home() {
       </header>
 
       <main className={styles.main}>
-        {/* Hero Section */}
+        {/* Hero Section with Form */}
         <section className={styles.hero}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>
@@ -90,140 +90,105 @@ export default function Home() {
               achieve your financial goals
             </p>
 
-            {/* Search Section */}
-            <div className={styles.searchSection}>
-              <div className={styles.searchBox}>
-                <input
-                  type="text"
-                  placeholder="Enter your location or zip code"
-                  className={styles.searchInput}
-                />
-                <button className={styles.searchButton}>Find Advisors</button>
-              </div>
-              <div className={styles.searchFilters}>
-                <select className={styles.filterSelect}>
-                  <option>Specialization</option>
-                  <option>Retirement Planning</option>
-                  <option>Investment Management</option>
-                  <option>Tax Planning</option>
-                  <option>Estate Planning</option>
-                </select>
-                <select className={styles.filterSelect}>
-                  <option>Experience Level</option>
-                  <option>1-5 years</option>
-                  <option>5-10 years</option>
-                  <option>10+ years</option>
-                </select>
-              </div>
-            </div>
-          </div>
-        </section>
+            {/* Get Matched Form */}
+            <div className={styles.heroForm}>
+              <form onSubmit={handleSubmit} className={styles.form}>
+                <div className={styles.formRow}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="name" className={styles.label}>
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className={styles.input}
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="zipcode" className={styles.label}>
+                      Zip Code *
+                    </label>
+                    <input
+                      type="text"
+                      id="zipcode"
+                      name="zipcode"
+                      value={formData.zipcode}
+                      onChange={handleInputChange}
+                      required
+                      className={styles.input}
+                      placeholder="12345"
+                      maxLength={5}
+                    />
+                  </div>
+                </div>
 
-        {/* Contact Form Section */}
-        <section className={styles.formSection}>
-          <div className={styles.formContainer}>
-            <h2 className={styles.formTitle}>
-              Get Matched with a Financial Advisor
-            </h2>
-            <p className={styles.formSubtitle}>
-              Tell us about your financial goals and we&apos;ll connect you with
-              the right advisor
-            </p>
+                <div className={styles.formRow}>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="email" className={styles.label}>
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className={styles.input}
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  <div className={styles.formGroup}>
+                    <label htmlFor="phone" className={styles.label}>
+                      Phone Number (Optional)
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className={styles.input}
+                      placeholder="(555) 123-4567"
+                    />
+                  </div>
+                </div>
 
-            <form onSubmit={handleSubmit} className={styles.form}>
-              <div className={styles.formRow}>
                 <div className={styles.formGroup}>
-                  <label htmlFor="name" className={styles.label}>
-                    Full Name *
+                  <label htmlFor="investmentStage" className={styles.label}>
+                    Investment Stage *
                   </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                  <select
+                    id="investmentStage"
+                    name="investmentStage"
+                    value={formData.investmentStage}
                     onChange={handleInputChange}
                     required
-                    className={styles.input}
-                    placeholder="Enter your full name"
-                  />
+                    className={styles.select}
+                  >
+                    <option value="">Select investment stage</option>
+                    <option value="early">Early Stage</option>
+                    <option value="mid">Mid Stage</option>
+                    <option value="late">Late Stage</option>
+                  </select>
                 </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="zipcode" className={styles.label}>
-                    Zip Code *
-                  </label>
-                  <input
-                    type="text"
-                    id="zipcode"
-                    name="zipcode"
-                    value={formData.zipcode}
-                    onChange={handleInputChange}
-                    required
-                    className={styles.input}
-                    placeholder="12345"
-                    maxLength={5}
-                  />
-                </div>
-              </div>
 
-              <div className={styles.formRow}>
-                <div className={styles.formGroup}>
-                  <label htmlFor="email" className={styles.label}>
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    className={styles.input}
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-                <div className={styles.formGroup}>
-                  <label htmlFor="phone" className={styles.label}>
-                    Phone Number (Optional)
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className={styles.input}
-                    placeholder="(555) 123-4567"
-                  />
-                </div>
-              </div>
-
-              <div className={styles.formGroup}>
-                <label htmlFor="investmentStage" className={styles.label}>
-                  Investment Stage *
-                </label>
-                <select
-                  id="investmentStage"
-                  name="investmentStage"
-                  value={formData.investmentStage}
-                  onChange={handleInputChange}
-                  required
-                  className={styles.select}
+                <button
+                  type="submit"
+                  className={styles.submitButton}
+                  disabled={isSubmitting}
                 >
-                  <option value="">Select investment stage</option>
-                  <option value="early">Early Stage</option>
-                  <option value="mid">Mid Stage</option>
-                  <option value="late">Late Stage</option>
-                </select>
-              </div>
-
-              <button
-                type="submit"
-                className={styles.submitButton}
-                disabled={isSubmitting}
-              >
-                {isSubmitting ? "Submitting..." : "Get Matched with an Advisor"}
-              </button>
-            </form>
+                  {isSubmitting
+                    ? "Submitting..."
+                    : "Get Matched with an Advisor"}
+                </button>
+              </form>
+            </div>
           </div>
         </section>
 
@@ -312,27 +277,21 @@ export default function Home() {
           <div className={styles.stepsGrid}>
             <div className={styles.step}>
               <div className={styles.stepNumber}>1</div>
-              <h3>Search & Filter</h3>
-              <p>
-                Enter your location and preferences to find qualified advisors
-                in your area
-              </p>
+              <h3>Fill Out the Form</h3>
+              <p>Tell us about your financial goals and investment stage</p>
             </div>
             <div className={styles.step}>
               <div className={styles.stepNumber}>2</div>
-              <h3>Take a 1-Minute Survey</h3>
+              <h3>Get Matched</h3>
               <p>
-                We collect approximate financial information solely to connect
-                you with a financial professional. We don&apos;t sell or share
-                your data. You may request deletion at any time.
+                We&apos;ll connect you with qualified financial advisors in your
+                area based on your specific needs and preferences.
               </p>
             </div>
             <div className={styles.step}>
               <div className={styles.stepNumber}>3</div>
-              <h3>Connect & Consult</h3>
-              <p>
-                Schedule a free consultation to discuss your financial goals
-              </p>
+              <h3>Schedule Consultation</h3>
+              <p>Book a free consultation to discuss your financial goals</p>
             </div>
           </div>
         </section>
@@ -341,7 +300,7 @@ export default function Home() {
       <footer className={styles.footer}>
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
-            <h4>AdvisorMatch</h4>
+            <h4>East Bay Advisor Finder</h4>
             <p>Connecting you with trusted financial professionals</p>
           </div>
           <div className={styles.footerSection}>
@@ -358,7 +317,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.footerBottom}>
-          <p>&copy; 2024 AdvisorMatch. All rights reserved.</p>
+          <p>&copy; 2024 East Bay Advisor Finder. All rights reserved.</p>
         </div>
       </footer>
     </div>

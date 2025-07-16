@@ -81,8 +81,8 @@
   line-height: 1.6;
 }
 
-/* Search Section */
-.searchSection {
+/* Hero Form */
+.heroForm {
   background: white;
   border-radius: 12px;
   padding: 2rem;
@@ -90,96 +90,11 @@
   margin-top: 2rem;
 }
 
-.searchBox {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.searchInput {
-  flex: 1;
-  padding: 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 1rem;
-  outline: none;
-  transition: border-color 0.2s;
-  color: #1f2937;
-}
-
-.searchInput:focus {
-  border-color: #3b82f6;
-}
-
-.searchButton {
-  background: #10b981;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.searchButton:hover {
-  background: #059669;
-}
-
-.searchFilters {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.filterSelect {
-  padding: 0.75rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  background: white;
-  outline: none;
-  transition: border-color 0.2s;
-  color: #1f2937;
-}
-
-.filterSelect:focus {
-  border-color: #3b82f6;
-}
-
-/* Form Section */
-.formSection {
-  padding: 4rem 2rem;
-  background: white;
-}
-
-.formContainer {
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.formTitle {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1f2937;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.formSubtitle {
-  text-align: center;
-  color: #6b7280;
-  font-size: 1.1rem;
-  margin-bottom: 3rem;
-  line-height: 1.6;
-}
-
 .form {
-  background: #f9fafb;
-  padding: 2rem;
-  border-radius: 12px;
-  border: 1px solid #e5e7eb;
+  background: transparent;
+  padding: 0;
+  border: none;
+  border-radius: 0;
 }
 
 .formRow {
@@ -486,14 +401,6 @@
     font-size: 1rem;
   }
 
-  .searchBox {
-    flex-direction: column;
-  }
-
-  .searchFilters {
-    flex-direction: column;
-  }
-
   .formRow {
     grid-template-columns: 1fr;
   }
@@ -513,12 +420,12 @@
 }
 
 @media (max-width: 480px) {
-  .form {
+  .heroForm {
     padding: 1.5rem;
   }
 
-  .formTitle {
-    font-size: 2rem;
+  .heroTitle {
+    font-size: 1.75rem;
   }
 
   .sectionTitle {
