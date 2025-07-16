@@ -6,7 +6,7 @@ export default function Home() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.logo}>AdvisorMatch</h1>
+          <h1 className={styles.logo}>Financial Advisor Finder</h1>
           <nav className={styles.nav}>
             <a href="#find">Find Advisor</a>
             <a href="#about">About</a>
@@ -23,8 +23,8 @@ export default function Home() {
               Find Your Perfect Financial Advisor
             </h1>
             <p className={styles.heroSubtitle}>
-              Connect with certified financial professionals who can help you
-              achieve your financial goals
+              Connect with FINRA certified financial professionals who can help
+              you achieve your financial goals
             </p>
 
             {/* Search Section */}
@@ -149,8 +149,8 @@ export default function Home() {
             </div>
             <div className={styles.step}>
               <div className={styles.stepNumber}>2</div>
-              <h3>Compare Profiles</h3>
-              <p>Review advisor credentials, specialties, and client reviews</p>
+              <h3>Take a 1-Minute Survey</h3>
+              <p>We collect approximate financial information solely to connect you with a financial professional. We don't sell or share your data. You may request deletion at any time.</p>
             </div>
             <div className={styles.step}>
               <div className={styles.stepNumber}>3</div>
@@ -178,7 +178,7 @@ export default function Home() {
           <div className={styles.footerSection}>
             <h4>Support</h4>
             <a href="#help">Help Center</a>
-            <a href="#privacy">Privacy Policy</a>
+            <a href="/privacy">Privacy Policy</a>
             <a href="#terms">Terms of Service</a>
           </div>
         </div>
