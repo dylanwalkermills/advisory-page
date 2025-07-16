@@ -1,11 +1,75 @@
+"use client";
+
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [formData, setFormData] = useState({
+    name: "",
+    zipcode: "",
+    email: "",
+    investmentStage: "",
+    phone: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    if (name === "zipcode") {
+      // Only allow 5 digits for zipcode
+      const zipValue = value.replace(/\D/g, "").slice(0, 5);
+      setFormData((prev) => ({ ...prev, [name]: zipValue }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      // n8n webhook URL
+      const webhookUrl =
+        "https://dwmills.app.n8n.cloud/webhook-test/44a8630a-6db5-464e-80a3-e817a4fd9fae";
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          zipcode: formData.zipcode,
+          email: formData.email,
+          investmentStage: formData.investmentStage,
+          phone: formData.phone,
+          timestamp: new Date().toISOString(),
+          source: "advisor-match-landing",
+        }),
+      });
+
+      if (response.ok) {
+        // Redirect to confirmation page
+        window.location.href = "/confirmation";
+      } else {
+        throw new Error("Failed to submit form");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("There was an error submitting your form. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.logo}>AdvisorMatch</h1>
+          <h1 className={styles.logo}>East Bay Advisor Finder</h1>
           <nav className={styles.nav}>
             <a href="#find">Find Advisor</a>
             <a href="#about">About</a>
@@ -21,7 +85,6 @@ export default function Home() {
             <h1 className={styles.heroTitle}>
               Find Your Perfect Financial Advisor
             </h1>
-            {/* Updated for deployment */}
             <p className={styles.heroSubtitle}>
               Connect with certified financial professionals who can help you
               achieve your financial goals
@@ -53,6 +116,114 @@ export default function Home() {
                 </select>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Contact Form Section */}
+        <section className={styles.formSection}>
+          <div className={styles.formContainer}>
+            <h2 className={styles.formTitle}>
+              Get Matched with a Financial Advisor
+            </h2>
+            <p className={styles.formSubtitle}>
+              Tell us about your financial goals and we&apos;ll connect you with
+              the right advisor
+            </p>
+
+            <form onSubmit={handleSubmit} className={styles.form}>
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="name" className={styles.label}>
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className={styles.input}
+                    placeholder="Enter your full name"
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="zipcode" className={styles.label}>
+                    Zip Code *
+                  </label>
+                  <input
+                    type="text"
+                    id="zipcode"
+                    name="zipcode"
+                    value={formData.zipcode}
+                    onChange={handleInputChange}
+                    required
+                    className={styles.input}
+                    placeholder="12345"
+                    maxLength={5}
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formRow}>
+                <div className={styles.formGroup}>
+                  <label htmlFor="email" className={styles.label}>
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className={styles.input}
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+                <div className={styles.formGroup}>
+                  <label htmlFor="phone" className={styles.label}>
+                    Phone Number (Optional)
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className={styles.input}
+                    placeholder="(555) 123-4567"
+                  />
+                </div>
+              </div>
+
+              <div className={styles.formGroup}>
+                <label htmlFor="investmentStage" className={styles.label}>
+                  Investment Stage *
+                </label>
+                <select
+                  id="investmentStage"
+                  name="investmentStage"
+                  value={formData.investmentStage}
+                  onChange={handleInputChange}
+                  required
+                  className={styles.select}
+                >
+                  <option value="">Select investment stage</option>
+                  <option value="early">Early Stage</option>
+                  <option value="mid">Mid Stage</option>
+                  <option value="late">Late Stage</option>
+                </select>
+              </div>
+
+              <button
+                type="submit"
+                className={styles.submitButton}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Submitting..." : "Get Matched with an Advisor"}
+              </button>
+            </form>
           </div>
         </section>
 

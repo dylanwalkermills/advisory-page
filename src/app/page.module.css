@@ -104,6 +104,7 @@
   font-size: 1rem;
   outline: none;
   transition: border-color 0.2s;
+  color: #1f2937;
 }
 
 .searchInput:focus {
@@ -140,10 +141,118 @@
   background: white;
   outline: none;
   transition: border-color 0.2s;
+  color: #1f2937;
 }
 
 .filterSelect:focus {
   border-color: #3b82f6;
+}
+
+/* Form Section */
+.formSection {
+  padding: 4rem 2rem;
+  background: white;
+}
+
+.formContainer {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.formTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.formSubtitle {
+  text-align: center;
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-bottom: 3rem;
+  line-height: 1.6;
+}
+
+.form {
+  background: #f9fafb;
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  font-weight: 600;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.input,
+.select {
+  padding: 0.75rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+  background: white;
+  color: #1f2937;
+}
+
+.input::placeholder {
+  color: #9ca3af;
+}
+
+.input:focus,
+.select:focus {
+  border-color: #3b82f6;
+}
+
+.select option {
+  color: #1f2937;
+  background: white;
+}
+
+.select option[value=""] {
+  color: #9ca3af;
+}
+
+.submitButton {
+  width: 100%;
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 1rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
 
 /* Featured Section */
@@ -321,6 +430,7 @@
   background: #1f2937;
   color: white;
   padding: 3rem 2rem 1rem;
+  margin-top: auto;
 }
 
 .footerContent {
@@ -384,6 +494,10 @@
     flex-direction: column;
   }
 
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
   .advisorsGrid {
     grid-template-columns: 1fr;
   }
@@ -395,5 +509,19 @@
   .footerContent {
     grid-template-columns: 1fr;
     text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 1.5rem;
+  }
+
+  .formTitle {
+    font-size: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 2rem;
   }
 }
