@@ -1,3 +1,4 @@
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function PrivacyPolicy() {
@@ -7,8 +8,8 @@ export default function PrivacyPolicy() {
         <div className={styles.headerContent}>
           <h1 className={styles.logo}>AdvisorMatch</h1>
           <nav className={styles.nav}>
-            <a href="/">Home</a>
-            <a href="/privacy">Privacy</a>
+            <Link href="/">Home</Link>
+            <Link href="/privacy">Privacy</Link>
             <a href="#contact">Contact</a>
           </nav>
         </div>
@@ -22,10 +23,10 @@ export default function PrivacyPolicy() {
           <section className={styles.section}>
             <h2>1. Introduction</h2>
             <p>
-              AdvisorMatch ("we," "our," or "us") is committed to protecting
-              your privacy. This Privacy Policy explains how we collect, use,
-              disclose, and safeguard your information when you use our
-              financial advisor finder service.
+              AdvisorMatch (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;)
+              is committed to protecting your privacy. This Privacy Policy
+              explains how we collect, use, disclose, and safeguard your
+              information when you use our financial advisor finder service.
             </p>
             <p>
               By using our service, you consent to the data practices described
@@ -183,7 +184,7 @@ export default function PrivacyPolicy() {
           </section>
 
           <section className={styles.section}>
-            <h2>8. Children's Privacy</h2>
+            <h2>8. Children&apos;s Privacy</h2>
             <p>
               Our service is not intended for children under 13 years of age. We
               do not knowingly collect personal information from children under
@@ -207,7 +208,7 @@ export default function PrivacyPolicy() {
             <p>
               We may update this Privacy Policy from time to time. We will
               notify you of any material changes by posting the new policy on
-              this page and updating the "Last updated" date.
+              this page and updating the &quot;Last updated&quot; date.
             </p>
           </section>
 
@@ -241,14 +242,14 @@ export default function PrivacyPolicy() {
           </div>
           <div className={styles.footerSection}>
             <h4>Quick Links</h4>
-            <a href="/">Home</a>
-            <a href="/privacy">Privacy Policy</a>
+            <Link href="/">Home</Link>
+            <Link href="/privacy">Privacy Policy</Link>
             <a href="#contact">Contact</a>
           </div>
           <div className={styles.footerSection}>
             <h4>Support</h4>
             <a href="#help">Help Center</a>
-            <a href="/privacy">Privacy Policy</a>
+            <Link href="/privacy">Privacy Policy</Link>
             <a href="#terms">Terms of Service</a>
           </div>
         </div>

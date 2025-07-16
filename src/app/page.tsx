@@ -1,4 +1,3 @@
-import Image from "next/image";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -6,7 +5,7 @@ export default function Home() {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          <h1 className={styles.logo}>Financial Advisor Finder</h1>
+          <h1 className={styles.logo}>AdvisorMatch</h1>
           <nav className={styles.nav}>
             <a href="#find">Find Advisor</a>
             <a href="#about">About</a>
@@ -23,8 +22,8 @@ export default function Home() {
               Find Your Perfect Financial Advisor
             </h1>
             <p className={styles.heroSubtitle}>
-              Connect with FINRA certified financial professionals who can help
-              you achieve your financial goals
+              Connect with certified financial professionals who can help you
+              achieve your financial goals
             </p>
 
             {/* Search Section */}
@@ -150,7 +149,11 @@ export default function Home() {
             <div className={styles.step}>
               <div className={styles.stepNumber}>2</div>
               <h3>Take a 1-Minute Survey</h3>
-              <p>We collect approximate financial information solely to connect you with a financial professional. We don't sell or share your data. You may request deletion at any time.</p>
+              <p>
+                We collect approximate financial information solely to connect
+                you with a financial professional. We don&apos;t sell or share
+                your data. You may request deletion at any time.
+              </p>
             </div>
             <div className={styles.step}>
               <div className={styles.stepNumber}>3</div>
