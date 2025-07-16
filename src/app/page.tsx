@@ -21,6 +21,7 @@ export default function Home() {
             <h1 className={styles.heroTitle}>
               Find Your Perfect Financial Advisor
             </h1>
+            {/* Updated for deployment */}
             <p className={styles.heroSubtitle}>
               Connect with certified financial professionals who can help you
               achieve your financial goals
