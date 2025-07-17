@@ -74,7 +74,15 @@ export default function Home() {
           <nav className={styles.nav}>
             <Link href="/find-advisor">Find Advisor</Link>
             <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
+            <Link
+              href="/contact"
+              onClick={() => {
+                if (document.activeElement instanceof HTMLElement)
+                  document.activeElement.blur();
+              }}
+            >
+              Contact
+            </Link>
           </nav>
         </div>
       </header>
