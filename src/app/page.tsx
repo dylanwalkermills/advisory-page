@@ -73,8 +73,8 @@ export default function Home() {
           <h1 className={styles.logo}>East Bay Advisor Finder</h1>
           <nav className={styles.nav}>
             <Link href="/find-advisor">Find Advisor</Link>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
           </nav>
         </div>
       </header>
@@ -310,14 +310,14 @@ export default function Home() {
           <div className={styles.footerSection}>
             <h4>Quick Links</h4>
             <Link href="/find-advisor">Find Advisor</Link>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact</a>
+            <Link href="/about">About Us</Link>
+            <Link href="/contact">Contact</Link>
           </div>
           <div className={styles.footerSection}>
             <h4>Support</h4>
-            <a href="#help">Help Center</a>
-            <a href="/privacy">Privacy Policy</a>
-            <a href="#terms">Terms of Service</a>
+            <Link href="/help">Help Center</Link>
+            <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
           </div>
         </div>
         <div className={styles.footerBottom}>
