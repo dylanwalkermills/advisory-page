@@ -2,6 +2,7 @@
 
 import styles from "./page.module.css";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -71,7 +72,7 @@ export default function Home() {
         <div className={styles.headerContent}>
           <h1 className={styles.logo}>East Bay Advisor Finder</h1>
           <nav className={styles.nav}>
-            <a href="#find">Find Advisor</a>
+            <Link href="/find-advisor">Find Advisor</Link>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -301,11 +302,14 @@ export default function Home() {
         <div className={styles.footerContent}>
           <div className={styles.footerSection}>
             <h4>East Bay Advisor Finder</h4>
-            <p>Connecting you with trusted financial professionals</p>
+            <p>
+              Connecting you with trusted financial professionals in the East
+              Bay Area
+            </p>
           </div>
           <div className={styles.footerSection}>
             <h4>Quick Links</h4>
-            <a href="#find">Find Advisor</a>
+            <Link href="/find-advisor">Find Advisor</Link>
             <a href="#about">About Us</a>
             <a href="#contact">Contact</a>
           </div>
